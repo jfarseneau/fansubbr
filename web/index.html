@@ -1,0 +1,157 @@
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="style/fansubbr-style.css" />
+  <link rel="stylesheet" type="text/css" href="style/niftyCorners.css" />
+	<link rel="stylesheet" type="text/css" href="style/niftyPrint.css" media="print" />
+	<script type="text/javascript" src="style/nifty.js"></script>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+		if(!NiftyCheck())
+    	return;
+		Rounded("div.roundedCorners","transparent","#FFFFFF");
+		Rounded("div.roundedButtons","transparent", "#009900");
+		}
+	</script>
+
+	<script type="text/javascript">
+		var ids=new Array('ssaOptions', 'ssaOptionsUnrolled');
+
+		function switchid(id)
+		{	
+			hideallids();
+			showdiv(id);
+		}
+
+		function hideallids(){
+			//loop through the array and hide each element by id
+			for (var i=0;i<ids.length;i++){
+				hidediv(ids[i]);
+			}		  
+		}
+
+		function hidediv(id) {
+			//safe function to hide an element with a specified id
+			if (document.getElementById) { // DOM3 = IE5, NS6
+				document.getElementById(id).style.display = 'none';
+			}
+			else {
+				if (document.layers) { // Netscape 4
+					document.id.display = 'none';
+				}
+				else { // IE 4
+					document.all.id.style.display = 'none';
+				}
+			}
+		}
+
+		function showdiv(id) {
+			//safe function to show an element with a specified id
+		  
+			if (document.getElementById) { // DOM3 = IE5, NS6
+				document.getElementById(id).style.display = 'block';
+			}
+			else {
+				if (document.layers) { // Netscape 4
+					document.id.display = 'block';
+				}
+				else { // IE 4
+					document.all.id.style.display = 'block';
+				}
+			}
+		}
+	</script>
+  </head>
+  
+  <body>
+  <div class="headerBox">
+  	<img class="logo" src="images/logob.png" />
+  	<span class="menu">
+  		<a href="index.html" class="menuSelected">subtitle converter</a> |
+  		<a href="faq.html" class="menu">faq</a> |
+  		<a href="upcoming.html" class="menu">upcoming features</a> |
+  		<a href="problems.html" class="menu">having problems? suggestions?</a>
+  	</span>
+  	<span class="footnote">* It's actually version 0.1</span>
+  </div>
+  
+  <div class="seperator"></div>
+  <div class="bg"></div>
+  
+  <form action="cgi-bin/convert.cgi" method="post" enctype="multipart/form-data">
+  
+  	<br />
+  	<br />
+  	
+  	<div class="roundedCorners">
+		<div class="contentBox">
+  		<div class="contentHeader">Subtitle file to be converted goes here.</div>
+  		<div class="contentSubtitle">Please make sure to upload only subtitles ending with .srt, .ass or .ssa for now.  Anything else will be refused.</div>
+  		<input type="file" name="file" size="50">
+ 		</div>
+ 		</div>
+ 		
+ 		<br />
+ 		<br />
+ 		
+ 		<div class="roundedCorners">
+ 		<div class="contentBox">
+ 			<div class="contentHeader">Customize or not, the options are optional.</div>
+			<div class="contentSubtitle">In other words, you can just leave all this blank if you want.</div>
+			<br />
+ 			<div class="optionLabel">File Name:</div>
+ 			<input type="text" name="subtitleName" size="50">
+			<br />
+			<br />
+			<div class="optionLabel" id='ssaOptionsUnrolled'><a href="javascript:switchid('ssaOptions');"class="optionLink">+ SSA/ASS Options</a></div>
+			<div id='ssaOptions' style="display:none;">
+				<div class="optionLabel"><a href="javascript:switchid('ssaOptionsUnrolled')" class="optionLink">- SSA/ASS Options</a></div>
+				<div class="contentSubtitle">If you import a .SSA/.ASS file, anything entered in here will overwrite its respective value in the exported file.</div>
+				<div class="optionLabel">Title:</div>
+				<input type="text" name="ssaTitle" size="50">
+				<div class="optionLabel">PlayResY:</div>
+				<input type="text" name="ssaPlayResY" size="50">
+				<div class="optionLabel">PlayResX:</div>
+				<input type="text" name="ssaPlayResX" size="50">
+			</div>
+ 		</div>
+ 		</div>
+		
+ 		<br />
+ 		<br />
+ 		
+ 		<div class="roundedCorners">
+ 		<div class="contentBox">
+ 			<div class="contentHeader">Finally, in what format would you like it?</div>
+ 			<div class="contentSubtitle">Some of the information may be lost in the conversion, but most should convert perfectly.</div>
+ 			<br />
+ 			<input type="image" name="submit" src="images/srtExport.png" value="srt" border="0" />
+ 			<input type="image" name="submit" src="images/ssaExport.png" value="ssa" border="0" />
+ 		</div>
+ 		</div>
+ 		
+  </form>
+  <br />
+	<center>
+		<script type="text/javascript"><!--
+			google_ad_client = "pub-5734616906984032";
+			google_ad_width = 728;
+			google_ad_height = 90;
+			google_ad_format = "728x90_as";
+			google_ad_type = "text_image";
+			google_ad_channel = "";
+			google_color_border = "159406";
+			google_color_bg = "FFFFFF";
+			google_color_link = "008000";
+			google_color_text = "666666";
+			google_color_url = "008000";
+			//-->
+		</script>
+		<script type="text/javascript"
+  		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</center>
+	<br />
+    
+  </body>
+</html>
